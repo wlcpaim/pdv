@@ -1,31 +1,40 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" class="h-full">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SmartPDV - Sistema de Vendas</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SmartPDV Pro</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body { font-family: 'Inter', sans-serif; }
+        .touch-target { min-height: 44px; min-width: 44px; }
+    </style>
 </head>
-<body class="bg-gray-50 text-gray-900 font-sans h-screen flex flex-col">
-    <header class="bg-indigo-700 text-white p-4 shadow-md flex justify-between items-center">
-        <h1 class="text-xl font-bold">SmartPDV</h1>
-        <span id="date" class="text-xs opacity-80"></span>
+<body class="bg-gray-100 h-full flex flex-col text-gray-900">
+    <header class="bg-indigo-700 text-white p-4 shadow-md flex justify-between items-center z-10">
+        <h1 class="text-lg font-bold tracking-tight">SmartPDV</h1>
+        <div id="status-indicator" class="w-2 h-2 rounded-full bg-green-400"></div>
     </header>
 
-    <main id="content" class="flex-1 p-4 overflow-y-auto">
-        <!-- Conteúdo dinâmico -->
+    <main id="app-content" class="flex-1 overflow-y-auto p-4 space-y-4">
+        <!-- Conteúdo renderizado pelo JS -->
     </main>
 
-    <nav class="bg-white border-t border-gray-200 p-2 flex justify-around shadow-lg">
-        <button onclick="render('pdv')" class="flex flex-col items-center text-indigo-700">
-            <span class="text-sm font-medium">PDV</span>
+    <nav class="bg-white border-t border-gray-200 flex justify-around p-2 pb-safe z-10">
+        <button onclick="router.navigate('pdv')" class="nav-btn p-3 flex flex-col items-center gap-1 text-indigo-600" data-view="pdv">
+            <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+            <span class="text-[10px] font-medium uppercase tracking-wider">Venda</span>
         </button>
-        <button onclick="render('produtos')" class="flex flex-col items-center text-gray-500">
-            <span class="text-sm font-medium">Produtos</span>
+        <button onclick="router.navigate('produtos')" class="nav-btn p-3 flex flex-col items-center gap-1 text-gray-400" data-view="produtos">
+            <i data-lucide="package" class="w-6 h-6"></i>
+            <span class="text-[10px] font-medium uppercase tracking-wider">Estoque</span>
         </button>
-        <button onclick="render('dashboard')" class="flex flex-col items-center text-gray-500">
-            <span class="text-sm font-medium">Dashboard</span>
+        <button onclick="router.navigate('dashboard')" class="nav-btn p-3 flex flex-col items-center gap-1 text-gray-400" data-view="dashboard">
+            <i data-lucide="bar-chart-3" class="w-6 h-6"></i>
+            <span class="text-[10px] font-medium uppercase tracking-wider">Relatórios</span>
         </button>
     </nav>
     <script src="app.js"></script>
