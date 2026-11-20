@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartPDV - Sistema de Vendas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body class="bg-gray-50 text-gray-900 font-sans h-screen flex flex-col">
+    <header class="bg-indigo-700 text-white p-4 shadow-md flex justify-between items-center">
+        <h1 class="text-xl font-bold">SmartPDV</h1>
+        <span id="date" class="text-xs opacity-80"></span>
+    </header>
+
+    <main id="content" class="flex-1 p-4 overflow-y-auto">
+        <!-- Conteúdo dinâmico -->
+    </main>
+
+    <nav class="bg-white border-t border-gray-200 p-2 flex justify-around shadow-lg">
+        <button onclick="render('pdv')" class="flex flex-col items-center text-indigo-700">
+            <span class="text-sm font-medium">PDV</span>
+        </button>
+        <button onclick="render('produtos')" class="flex flex-col items-center text-gray-500">
+            <span class="text-sm font-medium">Produtos</span>
+        </button>
+        <button onclick="render('dashboard')" class="flex flex-col items-center text-gray-500">
+            <span class="text-sm font-medium">Dashboard</span>
+        </button>
+    </nav>
+    <script src="app.js"></script>
+</body>
+</html>
